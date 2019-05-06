@@ -17,6 +17,7 @@ Supported Platforms:
 ******************************************************************************/
 #include "SparkFunMPU9250-DMP.h"
 #include "MPU9250_RegisterMap.h"
+#include "util/arduino_mpu9250_spi.h"
 
 extern "C" {
 #include "util/inv_mpu.h"
@@ -423,6 +424,58 @@ inv_error_t MPU9250_DMP::dmpUpdateFifo(void)
 	unsigned char more;
 	
 	if (dmp_read_fifo(gyro, accel, quat, &timestamp, &sensors, &more)
+		   != INV_SUCCESS)
+    {
+	   return INV_ERROR;
+    }
+	
+	if (sensors & INV_XYZ_ACCEL)
+	{
+		ax = accel[X_AXIS];
+		ay = accel[Y_AXIS];
+		az = accel[Z_AXIS];
+	}
+	if (sensors & INV_X_GYRO)
+		gx = gyro[X_AXIS];
+	if (sensors & INV_Y_GYRO)
+		gy = gyro[Y_AXIS];
+	if (sensors & INV_Z_GYRO)
+		gz = gyro[Z_AXIS];
+	if (sensors & INV_WXYZ_QUAT)
+	{
+		qw = quat[0];
+		qx = quat[1];
+		qy = quat[2];
+		qz = quat[3];
+	}
+	
+	time = timestamp;
+	
+	return INV_SUCCESS;
+}
+
+inv_error_t MPU9250_DMP::dmpUpdateFifo_asyncStart(void)
+{
+	if (dmp_read_fifo_asyncStart()!= INV_SUCCESS) {
+		return INV_ERROR;
+	}
+}
+
+bool MPU9250_DMP::dmpUpdateFifo_asyncIsBusy(void)
+{
+	//return dmp_read_fifo_asyncIsBusy();
+	return mpu_spi_read_dmaIsBusy();
+}
+
+inv_error_t MPU9250_DMP::dmpUpdateFifo_asyncEnd(void)
+{
+	short gyro[3];
+	short accel[3];
+	long quat[4];
+	unsigned long timestamp;
+	short sensors;
+
+	if (dmp_read_fifo_asyncEnd(gyro, accel, quat, &timestamp, &sensors)
 		   != INV_SUCCESS)
     {
 	   return INV_ERROR;

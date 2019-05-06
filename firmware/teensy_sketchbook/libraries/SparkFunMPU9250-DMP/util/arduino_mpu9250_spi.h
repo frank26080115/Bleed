@@ -5,7 +5,7 @@ Jim Lindblom @ SparkFun Electronics
 original creation date: November 23, 2016
 https://github.com/sparkfun/SparkFun_MPU9250_DMP_Arduino_Library
 
-modified by Frank Zhao 2019 to add SPI
+modified by Frank Zhao 2019 to add SPI and DMA
 
 This library implements motion processing functions of Invensense's MPU-9250.
 It is based on their Emedded MotionDriver 6.12 library.
@@ -25,6 +25,8 @@ extern "C" {
 
 int mpu_spi_write(unsigned char reg_addr, unsigned char length, unsigned char * data);
 int mpu_spi_read(unsigned char reg_addr, unsigned char length, unsigned char * data);
+int mpu_spi_read_dma(unsigned char reg_addr, unsigned char length, unsigned char * data);
+bool mpu_spi_read_dmaIsBusy(void);
 void mpu_spi_init(uint8_t csPin, uint8_t intPin);
 
 #if defined(__cplusplus) 

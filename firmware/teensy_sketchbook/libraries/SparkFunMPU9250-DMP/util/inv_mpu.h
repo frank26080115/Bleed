@@ -116,6 +116,7 @@ int mpu_read_fifo(short *gyro, short *accel, unsigned long *timestamp,
     unsigned char *sensors, unsigned char *more);
 int mpu_read_fifo_stream(unsigned short length, unsigned char *data,
     unsigned char *more);
+int mpu_read_fifo_asyncStart(unsigned short length, unsigned char *data);
 int mpu_reset_fifo(void);
 
 int mpu_write_mem(unsigned short mem_addr, unsigned short length,

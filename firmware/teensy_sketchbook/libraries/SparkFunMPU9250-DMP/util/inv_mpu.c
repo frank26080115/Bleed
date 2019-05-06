@@ -35,7 +35,7 @@
 */
 
 /*
-Low level communication now supports both I2C and SPI
+Low level communication now supports both I2C and SPI (and DMA)
 */
 
 #include <Arduino.h>
@@ -1826,6 +1826,13 @@ int mpu_read_fifo_stream(unsigned short length, unsigned char *data,
 	if (mpu_reg_read(st.reg->fifo_r_w, length, data))
 		return -1;
 	more[0] = fifo_count / length - 1;
+	return 0;
+}
+
+int mpu_read_fifo_asyncStart(unsigned short length, unsigned char *data)
+{
+	if (mpu_spi_read_dma(st.reg->fifo_r_w, length, data))
+		return -1;
 	return 0;
 }
 
