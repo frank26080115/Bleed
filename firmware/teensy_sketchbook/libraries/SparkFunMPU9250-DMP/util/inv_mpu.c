@@ -653,6 +653,40 @@ int mpu_read_reg(unsigned char reg, unsigned char *data)
 	return mpu_reg_read(reg, 1, data);
 }
 
+static uint8_t mpu_regread_cache[2];
+
+/**
+ *  @brief      Read from a single register by starting a DMA SPI transaction
+ *  NOTE: The memory and FIFO read/write registers cannot be accessed.
+ *  @param[in]  reg     Register address.
+ *  @return     0 if successful.
+ */
+int mpu_read_reg_asyncStart(uint8_t reg)
+{
+	return mpu_spi_read_dma(reg, 1, mpu_regread_cache);
+}
+
+/**
+ *  @brief      Check if the SPI transaction previously started is still busy
+ *  @return     true if the SPI is still busy, false if not still busy
+ */
+bool mpu_read_reg_asyncIsBusy(void)
+{
+	return mpu_spi_read_dmaIsBusy();
+}
+
+/**
+ *  @brief      Get the result of the previous call to mpu_read_reg_asyncStart
+ *  NOTE: The memory and FIFO read/write registers cannot be accessed.
+ *  @param[out] data    Register data.
+ *  @return     0 if successful.
+ */
+int mpu_read_reg_asyncEnd(uint8_t* data)
+{
+	*data = mpu_regread_cache[1];
+	return 0;
+}
+
 /**
  *  @brief      Initialize hardware.
  *  Initial configuration:\n
