@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
@@ -36,8 +36,8 @@
 <layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
-<layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
+<layer number="30" name="bStop" color="7" fill="6" visible="yes" active="yes"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
 <layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
 <layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
@@ -1646,6 +1646,7 @@ Basic small signal diode good up to 200mA. SMB footprint. Common part #: BAS16</
 <wire x1="2.54" y1="-1.27" x2="2.54" y2="-2.54" width="0.127" layer="21"/>
 <pad name="1" x="0" y="0" drill="1.016" diameter="1.8796" shape="square"/>
 <pad name="2" x="2.54" y="0" drill="1.016" diameter="1.8796"/>
+<text x="-1.27" y="3.81" size="0.8128" layer="25">&gt;NAME</text>
 </package>
 <package name="SCREWTERMINAL-3.5MM-2">
 <wire x1="-1.75" y1="3.4" x2="5.25" y2="3.4" width="0.2032" layer="21"/>
@@ -2244,6 +2245,7 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <pad name="2" x="2.54" y="0" drill="1.016" diameter="1.8796"/>
 <pad name="3" x="5.08" y="0" drill="1.016" diameter="1.8796"/>
 <pad name="4" x="7.62" y="0" drill="1.016" diameter="1.8796"/>
+<text x="-1.27" y="3.81" size="0.8128" layer="25" font="vector" ratio="10">&gt;NAME</text>
 </package>
 <package name="SCREWTERMINAL-3.5MM-4">
 <wire x1="-2.3" y1="3.4" x2="12.8" y2="3.4" width="0.2032" layer="21"/>
@@ -10375,8 +10377,8 @@ Commonly used for 1/4W through-hole resistors. 0.3" pitch between holes.&lt;br&g
 <wire x1="-2" y1="0" x2="-1" y2="0" width="0.127" layer="51"/>
 <wire x1="-1" y1="0" x2="0.1" y2="0.5" width="0.127" layer="51"/>
 <wire x1="0.3" y1="0" x2="2" y2="0" width="0.127" layer="51"/>
-<smd name="P$1" x="-3.15" y="0" dx="2.3" dy="1.6" layer="1" rot="R180"/>
-<smd name="P$2" x="3.15" y="0" dx="2.3" dy="1.6" layer="1" rot="R180"/>
+<smd name="1" x="-3.15" y="0" dx="2.3" dy="1.6" layer="1" rot="R180"/>
+<smd name="2" x="3.15" y="0" dx="2.3" dy="1.6" layer="1" rot="R180"/>
 <text x="-3" y="2" size="0.762" layer="25">&gt;NAME</text>
 <text x="-3" y="-2.7" size="0.762" layer="27">&gt;VALUE</text>
 </package>
@@ -12009,6 +12011,7 @@ JST PH 2-pin thru-home side entry</description>
 <wire x1="1.8" y1="1.8" x2="1.8" y2="-1.8" width="0.01" layer="41"/>
 <wire x1="1.8" y1="-1.8" x2="-1.8" y2="-1.8" width="0.01" layer="41"/>
 <wire x1="-1.8" y1="-1.8" x2="-1.8" y2="1.8" width="0.01" layer="41"/>
+<circle x="-3.175" y="-3.175" radius="0.3175" width="0.254" layer="21"/>
 </package>
 <package name="TERMBLOCK-X2-OSTTF020161">
 <pad name="1" x="-1.75" y="0" drill="1.2" diameter="2.2" shape="octagon"/>
@@ -12035,12 +12038,12 @@ JST PH 2-pin thru-home side entry</description>
 <pad name="2" x="-1.25" y="0" drill="0.9" diameter="1.6764" shape="octagon"/>
 <pad name="4" x="3.75" y="0" drill="0.9" diameter="1.6764" shape="octagon"/>
 <pad name="1" x="-3.75" y="0" drill="0.9" diameter="1.6764" shape="octagon"/>
-<wire x1="-4" y1="2.35" x2="-6.2" y2="2.35" width="0.127" layer="21"/>
-<wire x1="-6.2" y1="-3.4" x2="6.2" y2="-3.4" width="0.127" layer="21"/>
-<wire x1="6.2" y1="2.35" x2="4" y2="2.35" width="0.127" layer="21"/>
-<wire x1="6.2" y1="-3.4" x2="6.2" y2="1" width="0.127" layer="21"/>
-<wire x1="-6.2" y1="-3.4" x2="-6.2" y2="1" width="0.127" layer="21"/>
-<wire x1="-2" y1="2.35" x2="2" y2="2.35" width="0.127" layer="21"/>
+<wire x1="-4" y1="2.35" x2="-6.2" y2="2.35" width="0.254" layer="21"/>
+<wire x1="-6.2" y1="-3.4" x2="6.2" y2="-3.4" width="0.254" layer="21"/>
+<wire x1="6.2" y1="2.35" x2="4" y2="2.35" width="0.254" layer="21"/>
+<wire x1="6.2" y1="-3.4" x2="6.2" y2="1" width="0.254" layer="21"/>
+<wire x1="-6.2" y1="-3.4" x2="-6.2" y2="1" width="0.254" layer="21"/>
+<wire x1="-2" y1="2.35" x2="2" y2="2.35" width="0.254" layer="21"/>
 </package>
 <package name="TEENSY_3.0-3.2&amp;LC_OUTER_ROW_SPECIAL">
 <pad name="GND" x="-7.62" y="16.51" drill="0.9652"/>
@@ -12090,6 +12093,18 @@ JST PH 2-pin thru-home side entry</description>
 <smd name="18/A4" x="8.89" y="-3.81" dx="3.5" dy="1.3" layer="1"/>
 <smd name="17/A3" x="6.35" y="-6.35" dx="3.5" dy="1.3" layer="1"/>
 <smd name="16/A2" x="8.89" y="-8.89" dx="3.5" dy="1.3" layer="1"/>
+</package>
+<package name="LOGO_BLEED">
+<text x="0" y="0" size="1.27" layer="1" ratio="15">BLEED
+Frank Zhao
+20190528A</text>
+<wire x1="-0.3175" y1="-0.3175" x2="-0.3175" y2="5.3975" width="0" layer="41"/>
+<wire x1="-0.3175" y1="5.3975" x2="11.43" y2="5.3975" width="0" layer="41"/>
+<wire x1="11.43" y1="5.3975" x2="11.43" y2="-0.3175" width="0" layer="41"/>
+<wire x1="11.43" y1="-0.3175" x2="-0.3175" y2="-0.3175" width="0" layer="41"/>
+<text x="0" y="0" size="1.27" layer="29" ratio="15">BLEED
+Frank Zhao
+20190528A</text>
 </package>
 </packages>
 <symbols>
@@ -13989,6 +14004,11 @@ JST PH 2-pin thru-home side entry</description>
 <text x="0" y="73.66" size="1.27" layer="95">&gt;NAME</text>
 <text x="0" y="71.12" size="1.27" layer="96">&gt;VALUE</text>
 </symbol>
+<symbol name="LOGO_BLEED">
+<text x="0" y="0" size="1.27" layer="94" ratio="10">BLEED
+Frank Zhao
+20190528A</text>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="3.3V" prefix="P+">
@@ -14004,7 +14024,7 @@ JST PH 2-pin thru-home side entry</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="5V">
+<deviceset name="5V" prefix="P+">
 <gates>
 <gate name="G$1" symbol="5V" x="0" y="0"/>
 </gates>
@@ -18114,8 +18134,8 @@ Standard SMD solder jumper. Used to automate production. Two varients : Normally
 </device>
 <device name="-SMD-1101NE" package="TACTILE-SWITCH-1101NE">
 <connects>
-<connect gate="G$1" pin="1" pad="P$1"/>
-<connect gate="G$1" pin="2" pad="P$2"/>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -18512,7 +18532,7 @@ BJT configuration in SOT23 package. MMBT2222 is the common NPN we use. Double ch
 </device>
 </devices>
 </deviceset>
-<deviceset name="TVS">
+<deviceset name="TVS" prefix="TVS">
 <gates>
 <gate name="G$1" symbol="SCHOTTKY_BRIDGE" x="0" y="0"/>
 </gates>
@@ -19272,7 +19292,7 @@ Various standard crystals. Proven footprints. Spark Fun Electronics SKU : COM-00
 </device>
 </devices>
 </deviceset>
-<deviceset name="TEENSY_3.1-3.2_OUTER_ROW">
+<deviceset name="TEENSY_3.1-3.2_OUTER_ROW" prefix="U">
 <description>Footprint for Teensy 3.1 or 3.2 board using all pin connections on the outer perimeter</description>
 <gates>
 <gate name="G$1" symbol="TEENSY_3.1-3.2_OUTER_ROW" x="0" y="0"/>
@@ -19460,7 +19480,25 @@ Various standard crystals. Proven footprints. Spark Fun Electronics SKU : COM-00
 </device>
 </devices>
 </deviceset>
+<deviceset name="LOGO_BLEED" prefix="LOGO">
+<gates>
+<gate name="G$1" symbol="LOGO_BLEED" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="LOGO_BLEED">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </drawing>
+<compatibility>
+<note version="6.3" minversion="6.2.2" severity="warning">
+Since Version 6.2.2 text objects can contain more than one line,
+which will not be processed correctly with this version.
+</note>
+</compatibility>
 </eagle>
